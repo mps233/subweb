@@ -1,0 +1,28 @@
+Log:
+  Level: none
+  AccessPath: 
+  ErrorPath: 
+DnsConfigPath: 
+RouteConfigPath:
+InboundConfigPath:
+OutboundConfigPath:
+ConnectionConfig:
+  Handshake: 4 
+  ConnIdle: 10
+  UplinkOnly: 2 
+  DownlinkOnly: 4 
+  BufferSize: 64 
+Nodes:
+  -
+    PanelType: "NewV2board" # Panel type: SSpanel, V2board
+    ApiConfig:
+      ApiHost: "https://takomod-paoluz-v2b.nloli.xyz"
+      ApiKey: "myfreecloud"
+      NodeID: 1
+      NodeType: Shadowsocks # Node type: V2ray, Shadowsocks, Trojan
+      Timeout: 30 # Timeout for the api request
+      EnableVless: false # Enable Vless for V2ray Type, Prefer remote configuration
+      EnableXTLS: false # Enable XTLS for V2ray and Trojan， Prefer remote configuration
+      SpeedLimit: 0 
+      DeviceLimit: 0 
+      RuleListPath:

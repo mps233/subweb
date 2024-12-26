@@ -3,9 +3,11 @@
 # 显示功能选择菜单
 echo "请选择要执行的功能："
 echo "1) 安装"
-echo "2) 增加规则"
+echo "2) 增加规则(香港，新加坡)"
+echo "3) 增加规则(其他)"
 
-read -p "请输入选择 (1 或 2): " choice
+
+read -p "请输入选择: " choice
 
 # 功能 1: 执行原来的功能
 if [ "$choice" == "1" ]; then
@@ -161,7 +163,33 @@ if [ "$choice" == "2" ]; then
     echo "正在重启 Docker 容器..."
     docker restart paolu-xrayr-1
 
-    echo "新增规则执行完成！"
+    echo "新增规则（香港新加坡）执行完成！"
+fi
+
+# 功能 3: 执行新增的功能（更新 RouteConfigPath 和 OutboundConfigPath）
+if [ "$choice" == "3" ]; then
+    echo "正在增加规则（其他）..."
+
+    cd /root/paolu/config
+
+    CONFIG_FILE="config.yml"
+
+    # 在 config.yml 文件中更新 RouteConfigPath 和 OutboundConfigPath
+    echo "正在更新 RouteConfigPath 和 OutboundConfigPath..."
+
+    # 添加 RouteConfigPath 和 OutboundConfigPath
+    sed -i "s|RouteConfigPath:.*|RouteConfigPath: /etc/XrayR/route.json|" "$CONFIG_FILE"
+    sed -i "s|OutboundConfigPath:.*|OutboundConfigPath: /etc/XrayR/custom_outbound.json|" "$CONFIG_FILE"
+
+    # 替换文件
+    rm -f route.json && curl -o route.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/route.json
+    rm -f custom_outbound.json && curl -o custom_outbound.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/custom_outbound.json
+
+    # 重启 Docker 容器
+    echo "正在重启 Docker 容器..."
+    docker restart paolu-xrayr-1
+
+    echo "新增规则（其他）执行完成！"
 fi
 
 

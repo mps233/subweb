@@ -142,7 +142,7 @@ fi
 if [ "$choice" == "2" ]; then
     echo "正在增加规则..."
 
-    cd paolu/config
+    cd /root/paolu/config
 
     CONFIG_FILE="config.yml"
 

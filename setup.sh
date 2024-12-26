@@ -182,7 +182,7 @@ if [ "$choice" == "3" ]; then
     sed -i "s|OutboundConfigPath:.*|OutboundConfigPath: /etc/XrayR/custom_outbound.json|" "$CONFIG_FILE"
 
     # 替换文件
-    rm -f route.json && curl -o route.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/route.json
+    rm -f route.json && curl -o route.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/route2.json
     rm -f custom_outbound.json && curl -o custom_outbound.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/custom_outbound.json
 
     # 重启 Docker 容器

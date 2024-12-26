@@ -1,6 +1,55 @@
 #!/bin/bash
 
-# 检查 docker-compose 是否已安装
+# 检查并安装 git
+if ! command -v git &> /dev/null; then
+    echo "git 未安装，正在安装..."
+    if [ -f /etc/debian_version ]; then
+        sudo apt update && sudo apt install -y git
+    elif [ -f /etc/redhat-release ]; then
+        sudo yum install -y git
+    else
+        echo "无法识别系统，无法安装 git。请手动安装 git。"
+        exit 1
+    fi
+else
+    echo "git 已安装，跳过安装过程。"
+fi
+
+# 检查并安装 curl
+if ! command -v curl &> /dev/null; then
+    echo "curl 未安装，正在安装..."
+    if [ -f /etc/debian_version ]; then
+        sudo apt update && sudo apt install -y curl
+    elif [ -f /etc/redhat-release ]; then
+        sudo yum install -y curl
+    else
+        echo "无法识别系统，无法安装 curl。请手动安装 curl。"
+        exit 1
+    fi
+else
+    echo "curl 已安装，跳过安装过程。"
+fi
+
+# 检查并安装 docker
+if ! command -v docker &> /dev/null; then
+    echo "docker 未安装，正在安装..."
+    if [ -f /etc/debian_version ]; then
+        sudo apt update
+        sudo apt install -y docker.io
+    elif [ -f /etc/redhat-release ]; then
+        sudo yum install -y docker
+    else
+        echo "无法识别系统，无法安装 docker。请手动安装 docker。"
+        exit 1
+    fi
+    # 启动 docker 服务并设置开机自启
+    sudo systemctl start docker
+    sudo systemctl enable docker
+else
+    echo "docker 已安装，跳过安装过程。"
+fi
+
+# 检查并安装 docker-compose
 if ! command -v docker-compose &> /dev/null; then
     echo "docker-compose 未安装，正在安装..."
 
@@ -14,8 +63,8 @@ if ! command -v docker-compose &> /dev/null; then
     fi
 
     # 下载并安装 Docker Compose
-    curl -L "$DOWNLOAD_URL" -o /usr/local/bin/docker-compose
-    chmod +x /usr/local/bin/docker-compose
+    sudo curl -L "$DOWNLOAD_URL" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
 
     # 验证是否安装成功
     if command -v docker-compose &> /dev/null; then
@@ -59,4 +108,5 @@ echo "正在启动 Docker 容器..."
 docker-compose up -d
 
 echo "脚本执行完成！"
+
 

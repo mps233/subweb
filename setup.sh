@@ -1,5 +1,33 @@
 #!/bin/bash
 
+# 检查 docker-compose 是否已安装
+if ! command -v docker-compose &> /dev/null; then
+    echo "docker-compose 未安装，正在安装..."
+
+    # 检查系统架构
+    ARCH=$(uname -m)
+    if [[ "$ARCH" == "x86_64" ]]; then
+        DOWNLOAD_URL="https://github.com/docker/compose/releases/download/v2.18.0/docker-compose-$(uname -s)-$(uname -m)"
+    else
+        echo "暂不支持此架构安装 Docker Compose。"
+        exit 1
+    fi
+
+    # 下载并安装 Docker Compose
+    curl -L "$DOWNLOAD_URL" -o /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+
+    # 验证是否安装成功
+    if command -v docker-compose &> /dev/null; then
+        echo "docker-compose 安装成功！"
+    else
+        echo "docker-compose 安装失败，请检查日志。"
+        exit 1
+    fi
+else
+    echo "docker-compose 已安装，跳过安装过程。"
+fi
+
 # 创建新文件夹并进入
 FOLDER_NAME="paolu"
 mkdir -p "$FOLDER_NAME"
@@ -31,3 +59,4 @@ echo "正在启动 Docker 容器..."
 docker-compose up -d
 
 echo "脚本执行完成！"
+

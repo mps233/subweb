@@ -85,6 +85,7 @@ cd "$FOLDER_NAME" || { echo "无法进入目录 $FOLDER_NAME"; exit 1; }
 # 克隆仓库
 echo "正在克隆仓库..."
 git clone https://github.com/XrayR-project/XrayR-release .
+cd config
 
 # 下载配置文件
 CONFIG_FILE="config.yml"
@@ -102,6 +103,9 @@ else
     echo "配置文件未找到！"
     exit 1
 fi
+
+# 同步时间
+apt install chrony -y
 
 # 启动 Docker 容器
 echo "正在启动 Docker 容器..."

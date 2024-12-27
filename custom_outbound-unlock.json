@@ -1,1 +1,35 @@
-111
+[
+  {
+    "tag": "IPv4_out",
+    "protocol": "freedom",
+    "settings": {}
+  },
+  {
+    "tag": "IPv6_out",
+    "protocol": "freedom",
+    "settings": {
+      "domainStrategy": "UseIPv6"
+    }
+  },
+  {
+    "protocol": "blackhole",
+    "tag": "block"
+  },
+  {
+    "tag": "openai", 
+    "protocol": "socks",
+    "settings": {
+      "auth": "password",
+      "accounts": [
+        {
+          "user": "7b197b90e981",
+          "pass": "7b197b90e981"
+        }
+      ],
+      "udp": false,
+      "ip": "160.16.241.191",
+      "port": 7889,
+      "userLevel": 0
+    }
+  }
+]

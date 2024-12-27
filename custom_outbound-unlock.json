@@ -33,7 +33,7 @@
 	    }
 	  ]
     }
-  }，
+  },
   {
     "tag": "Aanthropic",
     "protocol": "shadowsocks",
@@ -48,7 +48,7 @@
 	    }
 	  ]
     }
-  }，
+  },
   {
     "tag": "Netflix",
     "protocol": "shadowsocks",
@@ -63,7 +63,7 @@
 	    }
 	  ]
     }
-  }，
+  },
   {
     "tag": "JPMedia",
     "protocol": "shadowsocks",
@@ -78,7 +78,7 @@
 	    }
 	  ]
     }
-  }，
+  },
   {
     "tag": "JPGAMEs",
     "protocol": "shadowsocks",

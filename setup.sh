@@ -203,7 +203,7 @@ if [ "$choice" == "4" ]; then
     rm -f route.json && curl -o route.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/route-unlock.json
     rm -f custom_outbound.json && curl -o custom_outbound.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/custom_outbound-unlock.json
     rm -f geoip.dat && curl -o geoip.dat https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/geoip.dat
-    rm -f geosite.dat && curl -o geosite.dat ttps://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/geosite.dat
+    rm -f geosite.dat && curl -o geosite.dat https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/geosite.dat
 
     # 重启 Docker 容器
     echo "正在重启 Docker 容器..."

@@ -33,5 +33,65 @@
 	    }
 	  ]
     }
-  }
+  }，
+  {
+    "tag": "Aanthropic",
+    "protocol": "shadowsocks",
+    "settings": {
+	  "servers": [
+	    {
+	      "address": "156.229.162.76",
+	      "port": 2525,
+	      "method": "aes-128-gcm",
+	      "password": "kf5sgkMxjvut3XNcXvz6Gw==",
+	      "level": 0
+	    }
+	  ]
+    }
+  }，
+  {
+    "tag": "Netflix",
+    "protocol": "shadowsocks",
+    "settings": {
+	  "servers": [
+	    {
+	      "address": "46.232.120.226",
+	      "port": 2525,
+	      "method": "aes-128-gcm",
+	      "password": "7tApweekGF6fR8BM",
+	      "level": 0
+	    }
+	  ]
+    }
+  }，
+  {
+    "tag": "JPMedia",
+    "protocol": "shadowsocks",
+    "settings": {
+	  "servers": [
+	    {
+	      "address": "212.87.195.57",
+	      "port": 2525,
+	      "method": "aes-128-gcm",
+	      "password": "9ogodLY004c+jG2bxOX6gw==",
+	      "level": 0
+	    }
+	  ]
+    }
+  }，
+  {
+    "tag": "JPGAMEs",
+    "protocol": "shadowsocks",
+    "settings": {
+	  "servers": [
+	    {
+	      "address": "nippon.shamiko.uk",
+	      "port": 9950,
+	      "method": "aes-128-gcm",
+	      "password": "8vnmT7132PXA",
+	      "level": 0
+	    }
+	  ]
+    }
+  }，
 ]

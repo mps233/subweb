@@ -5,6 +5,7 @@ echo "请选择要执行的功能："
 echo "1) 安装"
 echo "2) 增加规则(香港，新加坡)"
 echo "3) 增加规则(其他)"
+echo "4) 增加流媒体解锁"
 
 
 read -p "请输入选择: " choice
@@ -184,6 +185,23 @@ if [ "$choice" == "3" ]; then
     # 替换文件
     rm -f route.json && curl -o route.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/route2.json
     rm -f custom_outbound.json && curl -o custom_outbound.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/custom_outbound.json
+
+    # 重启 Docker 容器
+    echo "正在重启 Docker 容器..."
+    docker restart paolu-xrayr-1
+
+    echo "新增规则（其他）执行完成！"
+fi
+
+# 功能 4: 执行流媒体解锁（更新 RouteConfigPath 和 OutboundConfigPath）
+if [ "$choice" == "4" ]; then
+    echo "正在增加流媒体解锁..."
+
+    cd /root/paolu/config
+
+    # 替换文件
+    rm -f route.json && curl -o route.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/route-unlock.json
+    rm -f custom_outbound.json && curl -o custom_outbound.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/custom_outbound-unlock.json
 
     # 重启 Docker 容器
     echo "正在重启 Docker 容器..."

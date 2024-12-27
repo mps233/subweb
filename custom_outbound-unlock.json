@@ -16,20 +16,22 @@
     "tag": "block"
   },
   {
-    "tag": "openai", 
+    "tag": "openai",
     "protocol": "socks",
     "settings": {
-      "auth": "password",
-      "accounts": [
-        {
-          "user": "7b197b90e981",
-          "pass": "7b197b90e981"
-        }
-      ],
-      "udp": false,
-      "ip": "160.16.241.191",
-      "port": 7889,
-      "userLevel": 0
+	  "servers": [
+	    {
+	      "address": "160.16.241.191",
+	      "port": 7889,
+	      "users": [
+	        {
+	          "user": "7b197b90e981",
+	          "pass": "7b197b90e981",
+	          "level": 0
+	        }
+	      ]
+	    }
+	  ]
     }
   }
 ]

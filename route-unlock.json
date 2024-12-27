@@ -77,7 +77,7 @@
     },
     {
       "type": "field",
-      "outboundTag": "JPGames", 
+      "outboundTag": "JPGAMEs", 
       "domain": ["cygames.co.jp","worldflipper.jp","worldflipper.akamaized.net","umamusume.akamaized.net","cygames.jp","colorfulpalette.org"] 
     }
   ]

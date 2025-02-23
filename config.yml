@@ -16,8 +16,8 @@ Nodes:
   -
     PanelType: "NewV2board" # Panel type: SSpanel, V2board
     ApiConfig:
-      ApiHost: "https://takomod-paoluz-v2b.nloli.xyz"
-      ApiKey: "myfreecloud"
+      ApiHost: "https://cdn.bocchi.ooo"
+      ApiKey: "miaopasimiaopasimiaopasi"
       NodeID: 1
       NodeType: Shadowsocks # Node type: V2ray, Shadowsocks, Trojan
       Timeout: 30 # Timeout for the api request

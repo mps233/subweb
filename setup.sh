@@ -98,7 +98,7 @@ if [ "$choice" == "1" ]; then
     fi
 
     # 创建新文件夹并进入
-    FOLDER_NAME="paolu"
+    FOLDER_NAME="bocchi"
     mkdir -p "$FOLDER_NAME"
     cd "$FOLDER_NAME" || { echo "无法进入目录 $FOLDER_NAME"; exit 1; }
 
@@ -145,7 +145,7 @@ fi
 if [ "$choice" == "2" ]; then
     echo "正在增加规则..."
 
-    cd /root/paolu/config
+    cd /root/bocchi/config
 
     CONFIG_FILE="config.yml"
 
@@ -162,7 +162,7 @@ if [ "$choice" == "2" ]; then
 
     # 重启 Docker 容器
     echo "正在重启 Docker 容器..."
-    docker restart paolu-xrayr-1
+    docker restart bocchi-xrayr-1
 
     echo "新增规则（香港新加坡）执行完成！"
 fi
@@ -171,7 +171,7 @@ fi
 if [ "$choice" == "3" ]; then
     echo "正在增加规则（其他）..."
 
-    cd /root/paolu/config
+    cd /root/bocchi/config
 
     CONFIG_FILE="config.yml"
 
@@ -188,7 +188,7 @@ if [ "$choice" == "3" ]; then
 
     # 重启 Docker 容器
     echo "正在重启 Docker 容器..."
-    docker restart paolu-xrayr-1
+    docker restart bocchi-xrayr-1
 
     echo "新增规则（其他）执行完成！"
 fi
@@ -197,7 +197,7 @@ fi
 if [ "$choice" == "4" ]; then
     echo "正在增加流媒体解锁..."
 
-    cd /root/paolu/config
+    cd /root/bocchi/config
 
     # 替换文件
     rm -f route.json && curl -o route.json https://raw.githubusercontent.com/mps233/subweb/refs/heads/vercel/route-unlock.json
@@ -207,7 +207,7 @@ if [ "$choice" == "4" ]; then
 
     # 重启 Docker 容器
     echo "正在重启 Docker 容器..."
-    docker restart paolu-xrayr-1
+    docker restart bocchi-xrayr-1
 
     echo "新增规则（其他）执行完成！"
 fi
